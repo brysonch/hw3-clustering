@@ -24,3 +24,5 @@ class Silhouette:
             np.ndarray
                 a 1D array with the silhouette scores for each of the observations in `X`
         """
+
+        
