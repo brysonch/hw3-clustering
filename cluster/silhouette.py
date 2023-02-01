@@ -26,14 +26,16 @@ class Silhouette:
         """
 
         nclusters = np.amax(y) + 1
+        nobs, nlabels = X.shape
         labels = np.arrange(0, np.amax(y))
         a = np.zeros(nclusters)
 
         for cluster in labels:
             cluster_type = X[cluster == y]
+            inds = np.where(X[cluster == y])
             dists = cdist(cluster_type, cluster_type, metric="euclidean")
             
-            a[cluster] = np.sum(dists, axis=1)/(dists.shape[0] - 1)
+            a[inds] = np.sum(dists, axis=1) / (dists.shape[0] - 1)
 
         b = np.zeros(nclusters)
 
