@@ -95,7 +95,7 @@ class KMeans:
         mse = np.zeros(self.k)
 
         for cluster in range(self.k):
-            mse[cluster] = np.sum(np.square(self.mat[cluster == self.pred_labels[cluster]] - self.centroids[cluster]))
+            mse[cluster] = np.sum(np.square(self.mat[cluster == self.pred_labels] - self.centroids[cluster]))
         return np.sum(mse)
 
     def get_centroids(self) -> np.ndarray:
