@@ -56,7 +56,7 @@ class KMeans:
 
         while i < self.max_iter and error > self.tol:
             self.pred_labels = self.predict(self.mat)
-            print("pred labels: ", self.pred_labels)
+            #print("pred labels: ", self.pred_labels)
             self.centroids = self.get_centroids()
             if i == 1: error = self.get_error()
             else: error = error - self.get_error()

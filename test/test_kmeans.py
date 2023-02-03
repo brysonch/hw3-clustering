@@ -1,7 +1,7 @@
 # Write your k-means unit tests here
 import pytest
 
-def test_bfs_traversal():
+def test_fit():
     
     tiny_graph = Graph("data/tiny_network.adjlist")
     test_traversal = tiny_graph.bfs("Michael Keiser")
