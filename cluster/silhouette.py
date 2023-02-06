@@ -1,4 +1,4 @@
-
+'''
 import numpy as np
 from scipy.spatial.distance import cdist
 
@@ -149,11 +149,3 @@ class Silhouette:
         return (b - a) / (np.maximum(a, b))
 
 
-            #dists.ravel()[::dists.shape[1]+1] = dists.max()+1
-            #test[dists.argmin(1)]
-
-            #for obs in range(obs_in_cluster):
-                # do not include pt itself
-                #cdist(cluster_type[obs], cluster_type, metric="euclidean")
-
-'''
