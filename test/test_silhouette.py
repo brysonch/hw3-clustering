@@ -10,7 +10,7 @@ def test_silhouette_small():
     km.fit(clusters)
     pred = km.predict(clusters)
     scores = Silhouette().score(clusters, pred)
-    assert scores == 345.738521649737, "Silhouette does not work on small k"
+    assert np.sum(scores) == 345.738521649737, "Silhouette does not work on small k"
 
 def test_silhouette_large():
 
@@ -20,4 +20,4 @@ def test_silhouette_large():
     km.fit(clusters)
     pred = km.predict(clusters)
     scores = Silhouette().score(clusters, pred)
-    assert scores == 5329.559959117421, "Silhouette does not work on large k"
+    assert np.sum(scores) == 5329.559959117421, "Silhouette does not work on large k"
