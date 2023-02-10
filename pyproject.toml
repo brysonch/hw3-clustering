@@ -6,15 +6,12 @@ requires = [
 build-backend = "flit_core.buildapi"
 
 [project]
-name = "kmeans clustering (HW3)""
-authors = [{
-	name = "Bryson Choy",
-	email = "bryson.choy@ucsf.edu"
-	}]
+name = "cluster"
+authors = [{name = "Bryson Choy", email = "bryson.choy@ucsf.edu"}]
 readme = "README.md"
 license = {file = "LICENSE"}
 classifiers = ["License :: OSI Approved :: MIT License"]
 dynamic = ["version", "description"]
 dependencies = [
-	numpy, scipy, pytest
+	"numpy", "matplotlib", "scipy", "pytest"
 ]
