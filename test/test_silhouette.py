@@ -1,6 +1,6 @@
 # write your silhouette score unit tests here
 import pytest
-from cluster import Silhouette
+from cluster import (Silhouette, make_clusters)
 
 def test_silhouette_small():
 
