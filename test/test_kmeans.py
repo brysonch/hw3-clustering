@@ -25,8 +25,8 @@ def test_kmeans():
     except:
         lessobs_test = True
 
-    assert none_test = True, "k must be greater than 0"
-    assert noint_test = True, "k must be an integer"
-    assert lessobs_test = True, "n observations must be greater than or equal to k clusters"
+    assert none_test == True, "k must be greater than 0"
+    assert noint_test == True, "k must be an integer"
+    assert lessobs_test == True, "n observations must be greater than or equal to k clusters"
     
     
