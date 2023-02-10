@@ -116,7 +116,8 @@ class KMeans:
 
         fit_centroids = np.zeros((self.k, self.features))
 
-        # 
+        # Get centroids locations by taking the average of the predicted labels from cluster across all observations
+        # Centroid will be the average of those points matching the corresponding label
         for cluster in range(self.k):            
             fit_centroids[cluster, :] = np.mean(mat[cluster == self.pred_labels, :], axis = 0)
 
@@ -124,9 +125,12 @@ class KMeans:
 
     def _init_centroids(self, mat:np.ndarray) -> np.ndarray:
 
+        # Instead of random initialization, start with a random point as a centroid
+        # The next centroid will be the point furthest away from the previous centroid until we reach k centroids
+        # Modify mat to remove the previous centroid itself
+        # We are replacing each random centroid with new centroids as we loop
         centroids = mat[np.random.choice(self.observations, self.k)]
         mod_mat = mat
-        # replacing each random centroid
 
         for centroid in range(self.k - 1):
             ind = np.where((mod_mat == centroids[centroid]).all(axis=1))

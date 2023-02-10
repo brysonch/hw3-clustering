@@ -25,11 +25,14 @@ class Silhouette:
                 a 1D array with the silhouette scores for each of the observations in `X`
         """
 
+        # Find the number of clusters
+        # Initialize an array to keep track of a (distance of each point to every other point in the same cluster)
         nclusters = np.amax(y) + 1
         nobs, nlabels = X.shape
         labels = np.arange(0, np.amax(y) + 1)
         a = np.zeros(nobs)
 
+        # Loop over all clusters and calculate a by euclidean distance
         for cluster in np.unique(labels):            
 
             cluster_type = X[cluster == y]
@@ -40,6 +43,8 @@ class Silhouette:
 
         b = np.zeros(nobs)
 
+        # Loop over all clusters and calculate b by euclidean distance
+        # b is the smallest mean distance for each point to another cluster
         for cluster in np.unique(labels):
             cluster_type_og = X[cluster == y]
             inds = np.where(cluster == y)
@@ -49,10 +54,10 @@ class Silhouette:
             for other_cluster in np.unique(other_labels):
                 cluster_type = X[other_cluster == y]
 
+                # Make sure that the orientation of the matrix is correct
                 dists = cdist(cluster_type_og, cluster_type, metric="euclidean")
                 avg_dists_per_cluster = np.mean(dists, axis=1)
                 min_dists = np.minimum(avg_dists_per_cluster, min_dists)
-                # make sure that the orientation of the matrix is correct
             
             b[inds] = min_dists
             
